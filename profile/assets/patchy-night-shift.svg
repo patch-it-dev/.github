@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300" role="img" aria-labelledby="t d">
+  <title id="t">Patchy, the patch-it bot</title>
+  <desc id="d">Patchy flies in across a night sky and lands. A line types out: I'm Patchy. I work nights. When an API you use changes, you wake up to the fix. Then a pull request pill pops up: merged.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#121a3a"/>
+      <stop offset="0.6" stop-color="#0b0d11"/>
+      <stop offset="1" stop-color="#0b0d11"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0" r="0.7">
+      <stop offset="0" stop-color="#4f6bff" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#4f6bff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dawn" cx="0.5" cy="1.25" r="0.75">
+      <stop offset="0" stop-color="#d4a72c" stop-opacity="0.35"/>
+      <stop offset="0.5" stop-color="#f47067" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#f47067" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#e9ebee" fill-opacity="0.07"/></pattern>
+    <clipPath id="frame"><rect width="880" height="300" rx="20"/></clipPath>
+    <clipPath id="l1"><rect class="type t1" x="300" y="70" height="40" width="0"/></clipPath>
+    <clipPath id="l2"><rect class="type t2" x="300" y="122" height="34" width="0"/></clipPath>
+    <clipPath id="l3"><rect class="type t3" x="300" y="160" height="34" width="0"/></clipPath>
+  </defs>
+  <style>
+    .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .fly { animation: fly 1.4s cubic-bezier(.45, 0, .25, 1) 0.4s both; transform-box: view-box; }
+    .bob { animation: bob 3.2s ease-in-out 2s infinite; }
+    .type { animation: type var(--d) steps(var(--n)) var(--s) both; }
+    .t1 { --n: 26; --d: 0.9s; --s: 1.9s; }
+    .t2 { --n: 29; --d: 0.9s; --s: 2.9s; }
+    .t3 { --n: 24; --d: 0.8s; --s: 3.9s; }
+    .caret { animation: blink 1s steps(1) 4.8s infinite; }
+    .pill { animation: pop 0.45s cubic-bezier(.3, 1.6, .5, 1) 5s both; transform-box: fill-box; transform-origin: 0 50%; }
+    .confetti { animation: fade 0.6s ease-out 5.2s both; }
+    .eyes-open { animation: blinkface 4s steps(1) 2.4s infinite; }
+    .eyes-shut { animation: blinkface 4s steps(1) 2.4s infinite reverse; opacity: 0; }
+    .tw { animation: tw 3.5s ease-in-out infinite; }
+    .tw2 { animation: tw 4.5s ease-in-out 1.2s infinite; }
+    @keyframes fly {
+      0% { transform: translate(700px, -220px) rotate(-28deg) scale(0.6); }
+      45% { transform: translate(330px, -90px) rotate(-14deg) scale(0.9); }
+      78% { transform: translate(0, -30px) rotate(8deg) scale(1); }
+      90% { transform: translate(0, 6px) scale(1.08, 0.9); }
+      100% { transform: translate(0, 0) rotate(0) scale(1); }
+    }
+    @keyframes bob { 50% { transform: translateY(-5px); } }
+    @keyframes type { to { width: 560px; } }
+    @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } }
+    @keyframes pop { from { transform: scale(0.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes blinkface { 0% { opacity: 1; } 96% { opacity: 0; } }
+    @keyframes tw { 50% { opacity: 0.15; } }
+    @media (prefers-reduced-motion: reduce) {
+      .fly, .bob, .caret, .pill, .confetti, .eyes-open, .eyes-shut, .tw, .tw2 { animation: none; }
+      .type { animation: none; width: 560px; }
+    }
+  </style>
+
+  <g clip-path="url(#frame)">
+    <rect width="880" height="300" fill="url(#sky)"/>
+    <rect width="880" height="300" fill="url(#glow)"/>
+    <rect width="880" height="300" fill="url(#dots)"/>
+    <rect width="880" height="300" fill="url(#dawn)"/>
+    <g fill="#dfe4ff">
+      <circle class="tw" cx="70" cy="40" r="1.4" opacity="0.6"/>
+      <circle cx="190" cy="22" r="1" opacity="0.5"/>
+      <circle class="tw2" cx="420" cy="34" r="1.6" opacity="0.6"/>
+      <circle cx="560" cy="18" r="1" opacity="0.5"/>
+      <circle class="tw" cx="690" cy="52" r="1.3" opacity="0.6"/>
+      <circle cx="812" cy="28" r="1.8" opacity="0.7"/>
+      <circle class="tw2" cx="760" cy="230" r="1" opacity="0.4"/>
+      <circle cx="40" cy="250" r="1.2" opacity="0.4"/>
+      <circle class="tw" cx="250" cy="270" r="1" opacity="0.4"/>
+    </g>
+    <rect y="299" width="880" height="1" fill="#e8c27d" fill-opacity="0.5"/>
+
+    <!-- Patchy (same drawing as the site: cream head, ink visor, no hands) -->
+    <g transform="translate(70 68)">
+      <g class="fly">
+        <g class="bob">
+          <g transform="scale(1.35)">
+            <line x1="60" y1="28" x2="60" y2="15" stroke="#F5F0E6" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="60" cy="11" r="5" fill="#4F6BFF"/>
+            <rect x="15" y="52" width="9" height="20" rx="3" fill="#F5F0E6"/>
+            <rect x="96" y="52" width="9" height="20" rx="3" fill="#F5F0E6"/>
+            <rect x="22" y="28" width="76" height="66" rx="20" fill="#F5F0E6"/>
+            <rect x="32" y="42" width="56" height="36" rx="14" fill="#1E1E24"/>
+            <g transform="rotate(35 86 32)"><rect x="68" y="24" width="36" height="16" rx="4" fill="#4F6BFF"/><rect x="71.5" y="27.5" width="29" height="9" rx="2" fill="none" stroke="#F5F0E6" stroke-width="1.6" stroke-dasharray="3 2.2"/></g>
+            <path class="eyes-open" d="M43 64 Q49 55 55 64 M65 64 Q71 55 77 64" fill="none" stroke="#F5F0E6" stroke-width="4.5" stroke-linecap="round"/>
+            <path class="eyes-shut" d="M43 61 L55 61 M65 61 L77 61" fill="none" stroke="#F5F0E6" stroke-width="4.5" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- The intro, typed out -->
+    <g class="mono">
+      <text x="300" y="100" font-size="30" font-weight="700" fill="#ffffff" letter-spacing="-1" clip-path="url(#l1)">I'm Patchy. I work nights.</text>
+      <text x="300" y="146" font-size="21" fill="#9ba3ad" clip-path="url(#l2)">When an API you use changes,</text>
+      <text x="300" y="184" font-size="21" fill="#9ba3ad" clip-path="url(#l3)">you wake up to the <tspan fill="#8a9cff">fix</tspan>.</text>
+      <rect class="caret" x="596" y="168" width="11" height="20" fill="#6f86ff" opacity="0"/>
+    </g>
+
+    <!-- ...and the fix is merged -->
+    <g class="pill">
+      <rect x="300" y="214" width="236" height="34" rx="17" fill="#8957e5"/>
+      <path d="M322 223 a3 3 0 1 0 0.01 0 M322 226 v10 M322 239 a3 3 0 1 0 0.01 0 M333 231 a3 3 0 1 0 0.01 0 M322 229 q0 5 8 5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      <text x="344" y="236" class="mono" font-size="15" font-weight="700" fill="#ffffff">Merged · PR #114</text>
+    </g>
+    <g class="confetti">
+      <rect x="548" y="206" width="9" height="4" rx="2" fill="#4F6BFF" transform="rotate(-30 552 208)"/>
+      <rect x="560" y="236" width="9" height="4" rx="2" fill="#F5F0E6" transform="rotate(25 564 238)"/>
+      <circle cx="552" cy="226" r="2.5" fill="#F5F0E6"/>
+    </g>
+  </g>
+</svg>
